@@ -1,4 +1,4 @@
-﻿# Markdown Preview
+# Markdown Preview
 
 A lightweight Markdown editor with live preview for Windows, built with WPF (.NET 8) and MVVM architecture.
 
@@ -16,7 +16,7 @@ A lightweight Markdown editor with live preview for Windows, built with WPF (.NE
 - **Light / Dark theme / 亮色／暗色佈景主題** — Toggle with Ctrl+T; applies to editor, preview, and UI / 使用 Ctrl+T 切換，套用至編輯器、預覽及介面
 - **Export / 匯出** — Save rendered output as HTML or PDF with progress indicator and option to open the exported file / 將渲染結果儲存為 HTML 或 PDF，附進度指示與開啟檔案選項
 - **Alert blocks / 提示區塊** — Insert GitHub-compatible alerts (Note, Tip, Important, Warning, Caution) with Ctrl+Shift+C / 使用 Ctrl+Shift+C 插入相容 GitHub 的提示區塊（備註、提示、重要、警告、注意）
-- **Table insertion / 表格插入** — Insert Markdown tables with configurable rows and columns via Ctrl+Shift+T; formatting and CSV conversion are CJK-aware for correct column alignment / 使用 Ctrl+Shift+T 插入可設定列數與欄數的 Markdown 表格；格式化與 CSV 轉換支援 CJK 字元寬度計算，確保欄位正確對齊
+- **Table insertion & formatting / 表格插入與格式化** — Insert Markdown tables with configurable rows and columns via Ctrl+Shift+T; format all tables in the document (Ctrl+Shift+F), reformat selected table, or set column alignment (left/center/right) via the toolbar dropdown; formatting and CSV conversion are CJK-aware for correct column alignment / 使用 Ctrl+Shift+T 插入可設定列數與欄數的 Markdown 表格；使用 Ctrl+Shift+F 格式化文件中所有表格、重新格式化選取表格，或透過工具列下拉選單設定欄位對齊（靠左／置中／靠右）；格式化與 CSV 轉換支援 CJK 字元寬度計算，確保欄位正確對齊
 - **Table of Contents / 目錄** — Insert a Markdown TOC from headings (Ctrl+Shift+O), or toggle an auto-generated TOC in the preview (Ctrl+Shift+D) / 從標題插入 Markdown 目錄（Ctrl+Shift+O），或在預覽中切換自動產生的目錄（Ctrl+Shift+D）
 - **KaTeX math rendering / KaTeX 數學公式渲染** — Inline `$...$` and display `$$...$$` math expressions / 行內 `$...$` 與區塊 `$$...$$` 數學運算式
 - **Mermaid diagrams / Mermaid 圖表** — Render flowcharts, sequence diagrams, and more from `mermaid` fenced code blocks / 從 `mermaid` 程式碼區塊渲染流程圖、時序圖等
@@ -26,7 +26,7 @@ A lightweight Markdown editor with live preview for Windows, built with WPF (.NE
 - **Find / Replace / 尋找／取代** — Ctrl+F search panel with match case, whole word, regex options and current match position display; Ctrl+H opens replace mode with Replace and Replace All / Ctrl+F 搜尋面板支援區分大小寫、全字匹配、正規表示式及目前匹配位置顯示；Ctrl+H 開啟取代模式，支援取代與全部取代
 - **Recent files / 最近的檔案** — Quick access to recently opened/saved files from the File menu / 從檔案選單快速存取最近開啟／儲存的檔案
 - **Auto-save / 自動儲存** — Automatic draft saving every 30 seconds with crash recovery on next launch / 每 30 秒自動儲存草稿，下次啟動時可復原
-- **Formatting toolbar / 格式工具列** — One-click buttons for Bold, Italic, Strikethrough, Blockquote, Inline Code, Code Fence, Bullet/Numbered/Task List, Insert Alert/Image/Table/TOC/Emoji, CSV⇄Table toggle, Force Refresh; plus toggles for Preview Only, TOC, Sync Scroll, Dark Mode, font pickers, and a language selector / 一鍵按鈕支援粗體、斜體、刪除線、引用、行內程式碼、程式碼區塊、項目符號／編號／任務列表、插入提示區塊／圖片／表格／目錄／表情符號、CSV⇄表格轉換、強制重新整理；另有僅預覽、目錄、同步捲動、暗色模式切換、字型選擇器及語言選擇器
+- **Formatting toolbar / 格式工具列** — One-click buttons for Bold, Italic, Strikethrough, Blockquote, Inline Code, Code Fence, Bullet/Numbered/Task List, Insert Alert/Image/Table/TOC/Emoji, CSV⇄Table toggle, Format All Tables, Table Options (Reformat Selection, Set Column Alignment), Force Refresh; plus toggles for Preview Only, TOC, Sync Scroll, Dark Mode, font pickers, and a language selector / 一鍵按鈕支援粗體、斜體、刪除線、引用、行內程式碼、程式碼區塊、項目符號／編號／任務列表、插入提示區塊／圖片／表格／目錄／表情符號、CSV⇄表格轉換、格式化所有表格、表格選項（重新格式化選取範圍、設定欄位對齊）、強制重新整理；另有僅預覽、目錄、同步捲動、暗色模式切換、字型選擇器及語言選擇器
 - **Preview-only mode / 僅預覽模式** — Hide the editor and view rendered output full-width with Ctrl+M / 使用 Ctrl+M 隱藏編輯器，全寬檢視渲染結果
 - **Multi-language UI / 多語系介面** — English and Traditional Chinese (繁體中文) with live switching via View > Language menu or the toolbar language selector / 英文與繁體中文，透過 檢視 > 語言 選單或工具列語言選擇器即時切換
 - **Drag & drop / 拖放檔案** — Drop `.md`, `.markdown`, or `.txt` files to open / 拖放 `.md`、`.markdown` 或 `.txt` 檔案即可開啟
@@ -51,18 +51,26 @@ A lightweight Markdown editor with live preview for Windows, built with WPF (.NE
 | Ctrl+Z / Ctrl+Y | Undo / Redo / 復原／重做 |
 | Ctrl+F | Find / 尋找 |
 | Ctrl+H | Replace / 取代 |
-| Ctrl+T | Toggle light/dark theme / 切換亮色／暗色佈景主題 |
-| Ctrl+L | Toggle sync scrolling / 切換同步捲動 |
+| Ctrl+B | Bold / 粗體 |
+| Ctrl+I | Italic / 斜體 |
+| Ctrl+Shift+5 | Strikethrough / 刪除線 |
+| Ctrl+Shift+. | Blockquote / 引用 |
+| Ctrl+Shift+K | Inline Code / 行內程式碼 |
+| Ctrl+Shift+U | Toggle bullet list / 切換項目符號列表 |
+| Ctrl+Shift+N | Toggle numbered list / 切換編號列表 |
+| Ctrl+Shift+X | Task list / 任務列表 |
+| Tab | Indent list item / 縮排列表項目 |
+| Shift+Tab | Outdent list item / 取消縮排列表項目 |
+| Enter | Auto-continue list / 自動延續列表 |
 | Ctrl+Shift+C | Insert Alert block / 插入提示區塊 |
 | Ctrl+Shift+T | Insert Table / 插入表格 |
 | Ctrl+Shift+O | Insert TOC / 插入目錄 |
 | Ctrl+Shift+D | Toggle TOC in preview / 切換預覽目錄 |
 | Ctrl+Shift+E | Insert Emoji / 插入表情符號 |
-| Ctrl+Shift+U | Toggle bullet list / 切換項目符號列表 |
-| Ctrl+Shift+N | Toggle numbered list / 切換編號列表 |
-| Tab | Indent list item / 縮排列表項目 |
-| Shift+Tab | Outdent list item / 取消縮排列表項目 |
-| Enter | Auto-continue list / 自動延續列表 |
+| Ctrl+Shift+V | CSV ⇄ Table toggle / CSV⇄表格轉換 |
+| Ctrl+Shift+F | Format all tables / 格式化所有表格 |
+| Ctrl+T | Toggle light/dark theme / 切換亮色／暗色佈景主題 |
+| Ctrl+L | Toggle sync scrolling / 切換同步捲動 |
 | Ctrl+M | Toggle preview-only mode / 切換僅預覽模式 |
 | Ctrl+= / Ctrl+- | Zoom in / out / 放大／縮小 |
 | Ctrl+0 | Reset zoom / 重設縮放 |
@@ -91,6 +99,8 @@ A lightweight Markdown editor with live preview for Windows, built with WPF (.NE
 | ☰ | Insert TOC / 插入目錄 | Ctrl+Shift+O |
 | 😀 | Emoji Picker / 表情符號選擇器 | Ctrl+Shift+E |
 | ⇄ | CSV ⇄ Table Toggle / CSV⇄表格轉換 | Ctrl+Shift+V |
+| ≡ | Format All Tables / 格式化所有表格 | Ctrl+Shift+F |
+| ▾ | Table Options (Reformat Selection, Set Column Alignment) / 表格選項（重新格式化選取範圍、設定欄位對齊） | — |
 | 🔄 | Force Refresh / 強制重新整理 | — |
 | ☑ Preview Only | Toggle preview-only mode / 切換僅預覽模式 | Ctrl+M |
 | ☑ TOC | Toggle TOC in preview / 切換預覽目錄 | Ctrl+Shift+D |
@@ -118,9 +128,9 @@ dotnet build -c Release
 dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -o bin/Release/net8.0-windows/publish/win-x64
 ```
 
-An [Inno Setup](https://jrsoftware.org/isinfo.php) script (`publish.iss`) is included to create an installer with file associations and Start Menu/Desktop shortcuts.
+An [Inno Setup](https://jrsoftware.org/isinfo.php) script (`InnoPublish.iss`) is included to create an installer with file associations and Start Menu/Desktop shortcuts.
 
-附有 [Inno Setup](https://jrsoftware.org/isinfo.php) 腳本（`publish.iss`），可建立包含檔案關聯及開始功能表／桌面捷徑的安裝程式。
+附有 [Inno Setup](https://jrsoftware.org/isinfo.php) 腳本（`InnoPublish.iss`），可建立包含檔案關聯及開始功能表／桌面捷徑的安裝程式。
 
 ## Tech Stack / 技術堆疊
 
@@ -137,8 +147,8 @@ An [Inno Setup](https://jrsoftware.org/isinfo.php) script (`publish.iss`) is inc
 
 <img src="Assets/winstrong_logo.png" alt="Winstrong Technology / 耘強科技" width="200">
 
-Copyright &copy; 2025 Winstrong Technology, Taiwan. All rights reserved.
+Copyright &copy; 2025-2026 Winstrong Technology, Taiwan. All rights reserved.
 
-版權所有 &copy; 2025 耘強科技，台灣。保留一切權利。
+版權所有 &copy; 2025-2026 耘強科技，台灣。保留一切權利。
 
 Author / 作者: Bill Wang (billwang168@gmail.com)
